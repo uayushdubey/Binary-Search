@@ -1,0 +1,31 @@
+# note take the sorted list
+def Binary(arr, check):
+    left_index = 0
+    right_index = len(arr) - 1
+
+    while left_index <= right_index:
+        mid_index = (left_index + right_index)//2
+        mid_number = arr[mid_index]
+        global x
+        x = mid_index
+
+        if mid_number == check:
+            return mid_number
+        if mid_number < check:
+            left_index = mid_index + 1
+        else:
+            right_index = mid_index - 1
+
+    return -1
+
+
+if __name__ == "__main__":
+    x = 0
+    given_list = [1, 2, 5, 9, 12]
+    find = int(input("Enter number which has to be find : "))
+    index = Binary(given_list, find)
+    if index == find:
+        print("Number Found at Index", x)
+    else:
+        print("Number not found")
+print()
